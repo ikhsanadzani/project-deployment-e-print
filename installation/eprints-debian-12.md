@@ -96,19 +96,39 @@ bin/epadmin create pub
 
 **maka wizard akan menanyakan**
 
-| Prompt | Contoh Jawaban | Keterangan |
-|--------|----------------|------------|
-| Archive ID | `myrepo` | ID repository (huruf kecil, tanpa spasi) |
-| Archive Name | `My University Repository` | Nama lengkap repository |
-| Hostname | `eprints.local` | Domain/hostname (jangan gunakan `localhost`) |
-| Port | `80` | Port default HTTP |
-| Database Name | `myrepo` | Biasanya sama dengan Archive ID |
-| Database Host | `localhost` | Host database |
-| Database User | `eprints` | User MySQL yang dibuat sebelumnya |
-| Database Password | `password_anda` | Password MySQL |
-| Admin Email | `admin@example.com` | Email administrator |
-| Admin Username | `admin` | Username untuk login admin |
-| Admin Password | `(password)` | Password admin interface |
+| Pertanyaan | Jawaban |
+|------------|---------|
+| Archive ID? | `Eprints1` |
+| Configure vital settings? | `yes` |
+| Hostname? | `eprints.local` |
+| Webserver Port? | `80` |
+| Alias? | *[Tekan Enter]* |
+| Path? | `/` |
+| HTTPS Hostname? | *[Tekan Enter]* |
+| Administrator Email? | `dimasyogairtanto@gmail.com` *(Gunakan Email Anda)* |
+| Archive Name? | `Test Repository` |
+| Organisation Name? | `UIN J` |
+| Configure database? | `yes` |
+| Database Name? | `Eprints1` |
+| MySQL Host? | `localhost` |
+| MySQL Port? | `#` *(Untuk No Setting)* |
+| MySQL Socket? | `#` *(Untuk No Setting)* |
+| Database User? | `Eprints1` |
+| Database Password? | *[Masukkan Password]* |
+| Database Engine? | `InnoDB` |
+| Write these database settings? | `yes` |
+| Create database 'Eprints1'? | `yes` |
+| Database Superuser Username? | `root` |
+| Database Superuser Password? | *[Password root MySQL]* |
+| Create database tables? | `yes` |
+| Create an initial user? | `yes` |
+| Enter a username? | `bagas` |
+| Select a user type? | `admin` |
+| Enter Password? | *[Buat Password Admin]* |
+| Email? | `wicaksonob208@gmail.com` *(Gunakan Email Anda)* |
+| Build static web pages? | `yes` |
+| Import LOC subjects and sample divisions? | `yes` |
+| Update Apache config files? | `yes` |
 
 
 ``bash
