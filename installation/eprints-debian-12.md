@@ -1,4 +1,4 @@
-# Dependencies and Pre-configuration
+# Dependencies dan Pre-configuration
 
 ```
 apt install perl libncurses5 libselinux1 apache2 libapache2-mod-perl2 libxml-libxml-perl \
@@ -9,21 +9,20 @@ apt install perl libncurses5 libselinux1 apache2 libapache2-mod-perl2 libxml-lib
   libtex-encode-perl libio-string-perl python3-html2text make libexpat1-dev libxslt1-dev
 
 ```
-## installing on Debian, install MariaDB server and client:
-
+## Jika Anda menginstal di Debian, instal server dan klien MariaDB:
 ```
   apt install mariadb-server mariadb-client libmariadb-dev
 
 ```
 
-## create the eprints user
+## Selanjutnya, create usere prints
 
 ```
 adduser eprints
 
 ```
 
-## Now add the eprints user to the www-data group and vice-versa
+## Sekarang tambahkan pengguna eprints ke grup www-data dan sebaliknya
 
 ```
 usermod -a -G eprints www-data
@@ -31,7 +30,7 @@ usermod -a -G www-data eprints
 
 ```
 
-# Downloading and Deploying EPrints Source
+# Downloading dan Deploying EPrints Source
 ## EPrints 3.4.x for GitHub
 
 ```
@@ -53,7 +52,7 @@ wget https://files.eprints.org/3288/1/eprints-3.4.7.tar.gz
 tar -xzvf eprints-3.4.7.tar.gz
 ```
 
-## Then put in the source code in place:
+## lalu masukan source code:
 
 ```
 mv eprints-3.4.7 /opt/eprints3
@@ -61,7 +60,7 @@ chmod 2775 /opt/eprints3
 chown -R eprints:eprints /opt/eprints3
 ```
 
-## If you want a publications flavoured repository, then also:
+## Jika Anda menginginkan repositori bercita rasa publikasi, maka juga:
 
 ```
 wget https://files.eprints.org/3288/2/eprints-3.4.7-flavours.tar.gz
