@@ -70,3 +70,88 @@ mv eprints-3.4.7/flavours/pub_lib /opt/eprints3/flavours
 chmod -R g+w /opt/eprints3/flavours/pub_lib
 chown -R eprints:eprints /opt/eprints3/flavours/pub_lib
 ```
+
+## berikutnya sebagai user eprints copy 
+
+```
+EPRINTS_PATH/perl_lib/EPrints/SystemSettings.pm.tmpl
+```
+ke
+```
+EPRINTS_PATH/perl_lib/EPrints/SystemSettings.pm
+```
+jika belum ada.
+
+#### maka sekarang seharusnya EPRINTS_PATH sekarang selalu ada di /opt/eprints3
+
+## setting archive
+
+ganti user anda menjadi "eprints"
+lalu masuk ke direktori /opt/eprints3
+
+lalu jalankan command 
+```
+bin/epadmin create pub
+```
+
+**maka wizard akan menanyakan**
+
+| Prompt | Contoh Jawaban | Keterangan |
+|--------|----------------|------------|
+| Archive ID | `myrepo` | ID repository (huruf kecil, tanpa spasi) |
+| Archive Name | `My University Repository` | Nama lengkap repository |
+| Hostname | `eprints.local` | Domain/hostname (jangan gunakan `localhost`) |
+| Port | `80` | Port default HTTP |
+| Database Name | `myrepo` | Biasanya sama dengan Archive ID |
+| Database Host | `localhost` | Host database |
+| Database User | `eprints` | User MySQL yang dibuat sebelumnya |
+| Database Password | `password_anda` | Password MySQL |
+| Admin Email | `admin@example.com` | Email administrator |
+| Admin Username | `admin` | Username untuk login admin |
+| Admin Password | `(password)` | Password admin interface |
+
+
+``bash
+# Keluar dari user eprints
+exit
+
+# Link konfigurasi Apache
+# Ganti 'myrepo' dengan Archive ID yang Anda buat
+sudo ln -s /opt/eprints3/archives/myrepo/cfg/apache.conf \
+  /etc/apache2/sites-available/eprints-myrepo.conf
+
+# Enable site
+sudo a2ensite eprints-myrepo
+
+# Reload Apache
+```
+sudo systemctl reload apache2
+```
+### Generate Static Pages dan Views
+```bash
+sudo su - eprints
+cd /opt/eprints3
+
+# Generate static pages
+./bin/generate_static myrepo
+
+# Generate views
+./bin/generate_views myrepo
+
+# Generate abstracts
+./bin/generate_abstracts myrepo
+
+exit
+```
+
+### Restart Apache
+```bash
+sudo systemctl restart apache2
+```
+
+### akses eprints
+
+gunakan 
+```
+eprints.local (sesuaikan dengan hostname di wizard)
+```
