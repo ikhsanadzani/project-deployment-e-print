@@ -125,7 +125,7 @@ bin/epadmin create pub
 | Enter a username? | `bagas` |
 | Select a user type? | `admin` |
 | Enter Password? | *[Buat Password Admin]* |
-| Email? | `wicaksonob208@gmail.com` *(Gunakan Email Anda)* |
+| Email? | `dimasyogairtanto@gmail.com` *(Gunakan Email Anda)* |
 | Build static web pages? | `yes` |
 | Import LOC subjects and sample divisions? | `yes` |
 | Update Apache config files? | `yes` |
