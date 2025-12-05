@@ -9,6 +9,11 @@ apt install perl libncurses5 libselinux1 apache2 libapache2-mod-perl2 libxml-lib
   libtex-encode-perl libio-string-perl python3-html2text make libexpat1-dev libxslt1-dev
 
 ```
+  ### apa itu apt dan perl?
+  1. apt = 	Singkatan dari Advanced Package Tool. Ini adalah manajer paket utama di Debian. Anda menggunakannya untuk menginstal (apt install <nama_paket>), menghapus (apt remove <nama_paket>), memperbarui (apt update), dan meningkatkan (apt upgrade) perangkat lunak di sistem Anda.
+  2. 	perl = adalah singkatan dari Practical Extraction and Reporting Language. Perl adalah bahasa pemrograman tingkat tinggi yang sangat kuat, sering digunakan untuk administrasi sistem, pemrosesan teks, dan pembuatan skrip (scripting).
+
+  
 ## Jika Anda menginstal di Debian, instal server dan klien MariaDB:
 ```
   apt install mariadb-server mariadb-client libmariadb-dev
@@ -29,6 +34,9 @@ usermod -a -G eprints www-data
 usermod -a -G www-data eprints
 
 ```
+  ## apa itu -a dan -G?
+  1. Ini bukan perintah mandiri, melainkan sebuah opsi (flag) atau argumen yang ditambahkan ke perintah lain. Artinya bervariasi tergantung perintah yang digunakan. Contoh: di perintah ls -a, artinya "tampilkan semua file, termasuk yang tersembunyi (diawali titik)".
+  2. Sama seperti -a, ini adalah opsi untuk perintah lain. Di perintah ls -G, opsi ini menonaktifkan pewarnaan grup saat menampilkan daftar file.
 
 # Downloading dan Deploying EPrints Source
 ## EPrints 3.4.x for GitHub
