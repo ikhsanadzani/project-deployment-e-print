@@ -1,4 +1,4 @@
-# Dependencies dan Pre-configuration
+# 1. Install Dependencies dan Pre-configuration
 
 ```
 apt install perl libncurses5 libselinux1 apache2 libapache2-mod-perl2 libxml-libxml-perl \
@@ -9,25 +9,21 @@ apt install perl libncurses5 libselinux1 apache2 libapache2-mod-perl2 libxml-lib
   libtex-encode-perl libio-string-perl python3-html2text make libexpat1-dev libxslt1-dev
 
 ```
-  ### apa itu apt dan perl?
-  1. apt = 	Singkatan dari Advanced Package Tool. Ini adalah manajer paket utama di Debian. Anda menggunakannya untuk menginstal (apt install <nama_paket>), menghapus (apt remove <nama_paket>), memperbarui (apt update), dan meningkatkan (apt upgrade) perangkat lunak di sistem Anda.
-  2. 	perl = adalah singkatan dari Practical Extraction and Reporting Language. Perl adalah bahasa pemrograman tingkat tinggi yang sangat kuat, sering digunakan untuk administrasi sistem, pemrosesan teks, dan pembuatan skrip (scripting).
-
   
-## Jika Anda menginstal di Debian, instal server dan klien MariaDB:
+## 2. Jika Anda menginstal di Debian, instal server dan klien MariaDB:
 ```
   apt install mariadb-server mariadb-client libmariadb-dev
 
 ```
 
-## Selanjutnya, create usere prints
+## 3. Selanjutnya, create usere prints
 
 ```
 adduser eprints
 
 ```
 
-## Sekarang tambahkan pengguna eprints ke grup www-data dan sebaliknya
+## 4. Sekarang tambahkan pengguna eprints ke grup www-data dan sebaliknya
 
 ```
 usermod -a -G eprints www-data
@@ -38,7 +34,7 @@ usermod -a -G www-data eprints
   1. Ini bukan perintah mandiri, melainkan sebuah opsi (flag) atau argumen yang ditambahkan ke perintah lain. Artinya bervariasi tergantung perintah yang digunakan. Contoh: di perintah ls -a, artinya "tampilkan semua file, termasuk yang tersembunyi (diawali titik)".
   2. Sama seperti -a, ini adalah opsi untuk perintah lain. Di perintah ls -G, opsi ini menonaktifkan pewarnaan grup saat menampilkan daftar file.
 
-# Downloading dan Deploying EPrints Source
+# 4. Clone EPrints Source dari github
 ## EPrints 3.4.x for GitHub
 
 ```
@@ -60,7 +56,7 @@ wget https://files.eprints.org/3288/1/eprints-3.4.7.tar.gz
 tar -xzvf eprints-3.4.7.tar.gz
 ```
 
-## lalu masukan source code:
+## 5. lalu masukan source code:
 
 ```
 mv eprints-3.4.7 /opt/eprints3
@@ -68,7 +64,7 @@ chmod 2775 /opt/eprints3
 chown -R eprints:eprints /opt/eprints3
 ```
 
-## Jika Anda menginginkan repositori bercita rasa publikasi, maka juga:
+## 6. If you want a publications flavoured repository
 
 ```
 wget https://files.eprints.org/3288/2/eprints-3.4.7-flavours.tar.gz
@@ -78,7 +74,7 @@ chmod -R g+w /opt/eprints3/flavours/pub_lib
 chown -R eprints:eprints /opt/eprints3/flavours/pub_lib
 ```
 
-## berikutnya sebagai user eprints copy 
+## 7. berikutnya sebagai user eprints copy 
 
 ```
 EPRINTS_PATH/perl_lib/EPrints/SystemSettings.pm.tmpl
@@ -91,7 +87,7 @@ jika belum ada.
 
 #### maka sekarang seharusnya EPRINTS_PATH sekarang selalu ada di /opt/eprints3
 
-## setting archive
+## 8. setting archive
 
 ganti user anda menjadi "eprints"
 lalu masuk ke direktori /opt/eprints3
@@ -139,22 +135,23 @@ bin/epadmin create pub
 
 
 ``bash
-# Keluar dari user eprints
+# 9. Keluar dari user eprints
 exit
 
-# Link konfigurasi Apache
+# 10. konfigurasi Apache
 # Ganti 'myrepo' dengan Archive ID yang Anda buat
 sudo ln -s /opt/eprints3/archives/myrepo/cfg/apache.conf \
   /etc/apache2/sites-available/eprints-myrepo.conf
 
-# Enable site
+# 11. Enable site
+```
 sudo a2ensite eprints-myrepo
-
-# Reload Apache
+```
+# 12. Reload Apache
 ```
 sudo systemctl reload apache2
 ```
-### Generate Static Pages dan Views
+### 13. Generate Static Pages dan Views
 ```bash
 sudo su - eprints
 cd /opt/eprints3
@@ -171,12 +168,12 @@ cd /opt/eprints3
 exit
 ```
 
-### Restart Apache
+### 14. Restart Apache
 ```bash
 sudo systemctl restart apache2
 ```
 
-### akses eprints
+### 15. akses eprints
 
 gunakan 
 ```
