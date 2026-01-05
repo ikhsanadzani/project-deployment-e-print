@@ -12,7 +12,7 @@ sudo apt-get upgrade -y
 ### 2. Install Dependencies
 ```bash
 sudo apt-get install -y git apache2 mariadb-server mariadb-client \
-  libmariadb-dev perl libxml2-dev libxml-libxml-perl \
+  libmariadb-dev perl libapache2-sitecontrol-perl libxml2-dev libxml-libxml-perl \
   libunicode-string-perl libterm-readkey-perl libmime-lite-perl \
   libdigest-sha-perl libdbd-mysql-perl libxml-parser-perl \
   libxml2-utils libarchive-zip-perl libjson-perl libyaml-perl \
